@@ -124,7 +124,7 @@ def test(
     valid_ids = []
     ## load task configs
     assert os.path.exists(args.test_path) and args.test_path.endswith(".jsonl"), f"Invalid test_path, must be a valid jsonl file: {args.test_path}"
-    with open(args.test_path, "r") as f:
+    with open(args.test_path, "r", encoding="utf-8") as f:
         task_configs = [json.loads(line) for line in f]
 
         

@@ -18,7 +18,7 @@ import tiktoken
 import signal
 
 logger = logging.getLogger("api-llms")
-
+base_url = "https://api.302.ai/v1"
 
 def call_llm(payload):
     model = payload["model"]
@@ -34,7 +34,8 @@ def call_llm(payload):
         for i in range(3):
             try:
                 response = requests.post(
-                            "https://api.openai.com/v1/chat/completions",
+                            # "https://api.openai.com/v1/chat/completions",
+                            f"{base_url}/chat/completions",
                             headers=headers,
                             json=payload
                         )
@@ -90,7 +91,8 @@ def call_llm(payload):
         for i in range(3):
             try:
                 response = requests.post(
-                            "https://api.openai.com/v1/chat/completions",
+                            # "https://api.openai.com/v1/chat/completions",
+                            f"{base_url}/chat/completions",
                             headers=headers,
                             json=payload
                         )

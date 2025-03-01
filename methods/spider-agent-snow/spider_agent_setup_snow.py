@@ -20,7 +20,7 @@ def clear_folder(folder_path):
 
 def setup_snowflake():
     credential_path = 'snowflake_credential.json'
-    with open(JSONL_PATH, "r") as f:
+    with open(JSONL_PATH, "r", encoding="utf-8") as f:
         examples = [json.loads(line) for line in f]
     for example in examples:
         instance_id = example['instance_id']
@@ -41,7 +41,7 @@ def setup_snowflake():
 error_dbs = []
 def setup_add_schema(args):
 
-    with open(JSONL_PATH, "r") as f:
+    with open(JSONL_PATH, "r", encoding="utf-8") as f:
         examples = [json.loads(line) for line in f]            
             
     for example in examples:
@@ -64,8 +64,8 @@ def setup_add_schema(args):
 
 
 def add_snowflake_agent_setting():
-
-    with open(JSONL_PATH, "r") as f:
+    # print(f"这个路径是：{JSONL_PATH}")
+    with open(JSONL_PATH, "r", encoding="utf-8") as f:
         examples = [json.loads(line) for line in f]
 
     snowflake_agent_dir_path = os.path.join('./','examples')
